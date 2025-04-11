@@ -1,0 +1,105 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .about_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px; /* Optional: Add some top padding if needed */
+  }
+  
+  .about_header {
+    margin-bottom: 30px;
+  }
+  
+  .about_header h1 {
+    font-size: 28px; /* Standard desktop font size for heading */
+    margin: 0;
+  }
+  
+  .about_header p {
+    font-size: 18px; /* Standard desktop font size for subtitle */
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .about_main {
+    display: flex;
+    width: 80%;
+    max-width: 800px;
+    gap: 20px;
+  }
+  
+  .about_form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .about_form input,
+  .about_form textarea {
+    padding: 12px 15px; /* Standard padding for inputs */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px; /* Standard font size for inputs */
+  }
+  
+  .about_form input[type="text"],
+  .about_form input[type="email"] {
+    height: 40px; /* Fixed height for text and email inputs */
+  }
+  
+  .about_form textarea {
+    resize: vertical;
+    min-height: 120px; /* Fixed minimum height for textarea */
+    font-size: 16px; /* Standard font size for textarea */
+  }
+  
+  .about_form button {
+    padding: 12px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Standard font size for button */
+  }
+  
+  .about_info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .about_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .about_item span {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Media Query for Responsiveness */
+  @media (max-width: 600px) {
+    .about_main {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .about_form,
+    .about_info {
+      width: 100%;
+    }
+  }

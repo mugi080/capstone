@@ -1,0 +1,18 @@
+pip install django djangorestframework django-cors-headers
+
+
+pip install pillow
+
+pip install djangorestframework-simplejwt
+
+
+
+npm install -g create-vite
+
+npm create vite@latest frontend --template react
+cd frontend
+npm install
+
+npm install axios
+
+npm install react-router-dom
