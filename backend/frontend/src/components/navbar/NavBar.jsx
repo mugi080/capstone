@@ -1,33 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./NavBar.css";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("accessToken"));
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("access_token"));
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-  // Listen for login/logout changes
   useEffect(() => {
     const checkLoginStatus = () => {
-      const token = localStorage.getItem("accessToken");
+      const token = localStorage.getItem("access_token");
       setIsLoggedIn(!!token);
     };
-  
-    checkLoginStatus(); // Initial check
-  
-    // Listen for storage changes (detect login/logout from other components)
+
+    checkLoginStatus();
     window.addEventListener("storage", checkLoginStatus);
-  
-    return () => window.removeEventListener("storage", checkLoginStatus);
+
+    // Close dropdown if clicked outside
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("storage", checkLoginStatus);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
-  // Logout function
   const handleLogout = () => {
-    localStorage.removeItem("accessToken"); 
-    localStorage.removeItem("refreshToken");
-    setIsLoggedIn(false); // ✅ This ensures immediate state update
-    navigate("/login"); 
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.setItem("logout", Date.now());
+    setIsLoggedIn(false);
+    navigate("/login");
   };
 
   return (
@@ -35,6 +45,7 @@ const NavBar = () => {
       <div className="logo">
         <img src={logo} alt="BottleFlow Logo" />
       </div>
+
       <div className="menu">
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
@@ -42,14 +53,27 @@ const NavBar = () => {
         <Link to="/reviews">Reviews</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/shop_now">Shop Now</Link>
-        <Link to="/orders">Orders</Link>
+        {isLoggedIn && <Link to="/orders">Orders</Link>}
       </div>
 
-      <div className="login_btn">
+      <div className="login_btn" ref={dropdownRef}>
         {isLoggedIn ? (
           <>
-            <span className="user-icon">👤</span> {/* ✅ Replace with actual icon */}
-            <button onClick={handleLogout}>Logout</button>
+            <span
+              className="user-icon"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              👤
+            </span>
+            {dropdownOpen && (
+              <div className="dropdown-menu">
+                <Link to="/profile">Profile</Link>
+                <Link to="/settings">Settings</Link>
+                <Link to="/orders">My Orders</Link>
+                <hr />
+                <button onClick={handleLogout}>Logout</button>
+              </div>
+            )}
           </>
         ) : (
           <>

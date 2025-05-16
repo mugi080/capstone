@@ -1,4 +1,4 @@
-/* Navbar Styling */
+/* Navbar Container */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -8,47 +8,118 @@
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 10;
-  }
-  
-  .navbar .logo img {
-    height: 50px;
-  }
-  
-  .navbar .menu {
-    display: flex;
-    gap: 30px;
-  }
-  
-  .navbar a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    padding: 8px 0;
-    transition: 0.3s ease;
-  }
-  
-  .navbar a:hover {
-    color: #f41004;
-  }
+    z-index: 1000; /* Increased z-index to ensure it's on top of content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
 
-  /*  navarbar/btns */
-  .login_btn button {
+/* Ensure body has enough padding to avoid overlap with the fixed navbar */
+body {
+    padding-top: 70px; /* Adjust based on navbar height */
+}
+
+/* Logo */
+.navbar .logo img {
+    height: 50px;
+}
+
+/* Menu Links */
+.navbar .menu {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #1c1e21;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar a:hover {
+    background-color: #f0f2f5;
+    color: #1877f2;
+}
+
+/* Login Buttons */
+.login_btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.login_btn button {
     border: none;
-    background: #ffffff;
+    background: #f0f2f5;
     padding: 8px 15px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 6px;
     font-weight: 600;
-    color: #333;
-    }
+    color: #1c1e21;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
+}
 
-    .login_btn .border_sign {
-        border: 1px solid #333;
-    }
+.login_btn .border_sign {
+    border: 1px solid #ccc;
+    background: white;
+}
 
-    .login_btn button:hover {
-        background-color: #fff;
-        color: #f41004;
-        
-    }
+.login_btn button:hover {
+    background-color: #e4e6eb;
+    color: #1877f2;
+}
+
+/* User Icon */
+.user-icon {
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #e4e6eb;
+    transition: background-color 0.2s ease;
+}
+
+.user-icon:hover {
+    background-color: #d8dadf;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 50px;  /* Adjusted to avoid overlap with navbar */
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    width: 200px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999; /* Make sure it's on top of everything */
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    text-align: left;
+    padding: 10px 16px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1c1e21;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background-color: #f0f2f5;
+}
+
+.dropdown-menu hr {
+    margin: 8px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}

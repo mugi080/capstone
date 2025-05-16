@@ -1,0 +1,100 @@
+/* Global Styles for Admin Dashboard */
+.admin-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .admin-layout {
+    display: flex;
+    width: 100%;
+  }
+  
+  /* Sidebar Styles */
+  .admin-sidebar {
+    position: fixed;
+    top: 60px; /* sidebar starts under navbar */
+    left: 0;
+    height: calc(100% - 60px);
+    width: 250px;
+    padding: 20px;
+    background-color: #1a202c;
+    color: white;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  
+  .admin-sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .admin-sidebar a:hover {
+    background-color: #444;
+    padding: 10px;
+  }
+  
+  /* Main Content Area */
+  .admin-content {
+    margin-left: 240px; /* Space for the sidebar */
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    transition: margin-left 0.3s ease;
+  }
+  
+  /* Admin Header (Welcome Message and Logout Button) */
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .admin-header h1 {
+    margin: 0;
+  }
+  
+  .logout-btn {
+    background-color: #e53e3e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c53030;
+  }
+  
+  /* Admin Dashboard Content */
+  .admin-dashboard-content {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Dark Mode Styles */
+  body.dark {
+    background-color: #1a202c;
+    color: white;
+  }
+  
+  body.dark .admin-container {
+    background-color: #1a202c;
+  }
+  
+  body.dark .admin-sidebar {
+    background-color: #333;
+  }
+  
+  body.dark .admin-content {
+    background-color: #2d3748;
+  }
+  

@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+
 :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -11,71 +14,154 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  * {
+}
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  body {
+}
+
+body {
     min-width: 320px;
     min-height: 100vh;
     background-color: var(--background-color, #242424);
-    color: var(--text-color, rgba(255, 255, 255, 0.87));
+    color: var(--text-color, rgba(0, 0, 0, 0.87));
     line-height: 1.6;
-  }
-  
-  /* Links */
-  a {
+    padding-top: 50px; /* Adjust space for the navbar */
+}
+
+
+/* Ensure navbar does not cover content */
+.admin-navbar, .user-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    z-index: 100; /* Ensure navbar is above content */
+}
+
+/* Admin Sidebar */
+.admin-sidebar {
+    width: 250px;
+    background-color: #333;
+    padding: 10px;
+    color: white;
+    position: fixed;
+    height: 100%;
+    top: 50px; /* Move sidebar down to avoid overlap with navbar */
+    left: 0;
+    z-index: 90; /* Sidebar stays below navbar */
+}
+
+.admin-content {
+    margin-left: 250px; /* Adjust for sidebar width */
+    padding: 20px;
+    margin-top: 50px; /* Adjust for navbar height */
+    flex-grow: 1;
+}
+
+/* Links Styling */
+a {
     font-weight: 500;
     color: #646cff;
     text-decoration: none;
-  }
-  a:hover {
+}
+
+a:hover {
     color: #535bf2;
-  }
-  
-  /* Typography */
-  h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-  }
-  
-  /* Buttons */
-  button {
+}
+
+/* Buttons Styling */
+button {
     border-radius: 8px;
-    border: 1px solid transparent;
+    border: 1px solid #fff;
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #ada3a3;
+    color: #333;
     cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  button:hover {
-    border-color: #646cff;
-  }
-  button:focus,
-  button:focus-visible {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #333;
+    color: #e50914;
+    border-color: #e50914;
+}
+
+button:focus,
+button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* In your App.css or index.css */
+.leaflet-control.geosearch {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    z-index: 1000;
+    width: 250px;
   }
   
-  /* Light Mode (optional override) */
-  @media (prefers-color-scheme: light) {
+  .leaflet-control.geosearch input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+/* Styles for map-container */
+.map-container {
+    height: 400px;  /* Set default height for mobile */
+    width: 100%;    /* Full width */
+    margin-bottom: 1rem;
+    border-radius: 8px;  /* Rounded corners for a cleaner look */
+    overflow: hidden;    /* Prevents overflow outside the container */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+  }
+  
+  /* Increase height on larger screens */
+  @media (min-width: 768px) {
+    .map-container {
+      height: 500px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .map-container {
+      height: 600px;
+    }
+  }
+  
+  
+  
+  
+/* Light Mode Styling */
+@media (prefers-color-scheme: light) {
     :root {
-      color: #213547;
-      background-color: #ffffff;
+        color: #213547;
+        background-color: #ffffff;
     }
-  
+
     a:hover {
-      color: #747bff;
+        color: #747bff;
     }
-  
+
     button {
-      background-color: #f9f9f9;
+        background-color: #f9f9f9;
+        color: #333;
+        border-color: #ddd;
     }
-  }
-  
+
+    button:hover {
+        background-color: #333;
+        color: #e50914;
+        border-color: #e50914;
+    }
+}

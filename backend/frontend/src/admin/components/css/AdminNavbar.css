@@ -1,0 +1,58 @@
+/* General Navbar Styles */
+.admin-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    background-color: #ffffff; /* Light mode background */
+  }
+  
+  /* Logo container */
+  .logo-container {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .logo-container h2 {
+    margin: 0;
+  }
+  
+  /* Right side of the navbar */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Welcome message */
+  .welcome-message {
+    font-size: 1rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Admin name styling inside welcome message */
+  .admin-name {
+    font-weight: 600;
+    margin-left: 5px;
+  }
+  
+  /* Logout Button */
+  .logout-btn {
+    background-color: #e53e3e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c53030;
+  }
+  

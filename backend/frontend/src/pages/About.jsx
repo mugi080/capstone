@@ -16,7 +16,11 @@ const About = () => {
                 including bottled, canned, and plastic-packaged drinks, 
                 to quench every thirst and fit every lifestyle.
             </p>
-            <img src={logo} alt="BottleFlow Logo" />
+            <img 
+            src={logo} 
+            alt="BottleFlow Logo" 
+            style={{ width: "300px", marginTop: "1rem" }} />
+       
         </div>
  
         <div className="mission">

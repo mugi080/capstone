@@ -1,0 +1,85 @@
+/* General Sidebar Styles */
+.admin-sidebar {
+    position: fixed;
+    top: 60px; /* sidebar starts under navbar */
+    left: 0;
+    height: calc(100% - 60px);
+    width: 250px;
+    padding: 20px;
+    background-color: #1a202c;
+    color: white;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  
+  
+  
+  .admin-sidebar h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
+  
+  /* Sidebar Links */
+  .admin-sidebar ul {
+    padding-left: 0;
+  }
+  
+  .admin-sidebar .space-y-4 li {
+    list-style-type: none;
+  }
+  
+  .sidebar-link {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .sidebar-link:hover {
+    background-color: #4a5568;
+    color: white;
+  }
+  
+  /* Button Styles */
+  .sidebar-button {
+    background-color: #2d3748;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .sidebar-button:hover {
+    background-color: #4a5568;
+  }
+  
+  /* Transition for smooth hover effect */
+  .transition-colors {
+    transition: all 0.3s ease;
+  }
+  
+  /* Media Query for smaller screens */
+  @media (max-width: 768px) {
+    .admin-sidebar {
+      width: 200px;
+    }
+  
+    .sidebar-link {
+      font-size: 1rem;
+    }
+  }
+  

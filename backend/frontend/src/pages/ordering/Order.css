@@ -1,0 +1,153 @@
+.orders-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-card {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.order-id,
+.order-date,
+.total-price {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.items {
+    margin-top: 10px;
+}
+
+.items h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-name {
+    font-weight: bold;
+}
+
+.item-quantity,
+.item-price {
+    font-size: 1rem;
+}
+
+.item-price {
+    color: green;
+}
+
+.order-card .total-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #007b00;
+}
+
+/* Button Styles */
+.update-order-btn,
+.cancel-order-btn,
+.submit-update-btn {
+    padding: 10px 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Update Order Button */
+.update-order-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Cancel Order Button */
+.cancel-order-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Submit Update Button */
+.submit-update-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Optional: Edit form styling */
+.edit-order-form {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #eef6ff;
+    border-radius: 8px;
+    border: 1px solid #cce5ff;
+}
+
+.edit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.edit-item input {
+    width: 60px;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+/* Address, Payment Method, and Credit Card Adjustments */
+.order-info p {
+    font-size: 0.95rem; /* Slightly smaller font size */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .order-card {
+        padding: 10px;
+    }
+    
+    .item {
+        font-size: 0.9rem;
+    }
+    
+    .update-order-btn,
+    .cancel-order-btn,
+    .submit-update-btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .edit-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .edit-item input {
+        margin-top: 5px;
+    }
+}

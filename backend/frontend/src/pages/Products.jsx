@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getBeverages, getCategories } from "../api/Products";
+import { Link } from "react-router-dom";
+import "./css/Products.css"; // Import CSS file
 
 function Products() {
   const [beverages, setBeverages] = useState([]);
@@ -41,14 +43,12 @@ function Products() {
     : beverages;
 
   return (
-    <div>
-      <h1>Product List</h1>
-
+    <div className="products-container">
       {loading && <p>Loading beverages...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error">{error}</p>}
 
-      {/* Category Filter */}
-      <div>
+      {/* Filter */}
+      <div className="filter-container">
         <label htmlFor="category-select">Filter by Category:</label>
         <select
           id="category-select"
@@ -57,36 +57,30 @@ function Products() {
         >
           <option value="">All</option>
           {categories.map((cat) => (
-            <option key={cat.id} value={cat.id}>
-              {cat.name}
-            </option>
+            <option key={cat.id} value={cat.id}>{cat.name}</option>
           ))}
         </select>
       </div>
 
-      {/* Product List */}
-      <div>
+      {/* Products Grid */}
+      <div className="products-grid">
         {filteredBeverages.length > 0 ? (
           filteredBeverages.map((bev) => (
-            <div key={bev.id}>
+            <Link to={`/product-detail/${bev.id}`} key={bev.id} className="product-card">
               {bev.image && (
-                <img
-                  src={`http://127.0.0.1:8000${bev.image}`}
-                  alt={bev.name}
-                  width="150"
-                  height="150"
-                />
+                <div className="image-wrapper">
+                  <img src={`http://127.0.0.1:8000${bev.image}`} alt={bev.name} />
+                </div>
               )}
-              <p><strong>{bev.name}</strong></p>
-              <p>{bev.volume}ml</p>
-              <p>Php {bev.price}</p>
-              <p>Stock: {bev.stock}</p>
-              <p>{bev.is_available ? "Available ✅" : "Out of Stock ❌"}</p>
-              <hr />
-            </div>
+              <h2>{bev.name}</h2>
+              <div className="product-info">
+                <p>{bev.volume}ml</p>
+                <p className="price">Php {bev.price}</p>
+              </div>
+            </Link>
           ))
         ) : (
-          <p>No beverages found.</p>
+          <p className="no-products">No beverages found.</p>
         )}
       </div>
     </div>
